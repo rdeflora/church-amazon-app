@@ -3,47 +3,57 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Support Our Church</title>
+  <title>City of Refuge — Amazon Support</title>
 
   <!-- PWA + Icons -->
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="apple-touch-icon" href="icon-192.png">
+  <meta name="apple-mobile-web-app-title" content="City of Refuge">
   <meta name="theme-color" content="#0f5b9a">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
-  <!-- Basic styles -->
+  <!-- Styles -->
   <style>
     :root { --blue:#0f5b9a; }
     * { box-sizing: border-box; }
     html, body { height:100%; }
     body {
-      margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-      background:#f6f7fb; color:#111; display:grid; place-items:center;
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      background:#f6f7fb;
+      color:#111;
+      display:grid;
+      place-items:center;
     }
     .card {
       width:min(92vw, 520px);
-      background:#fff; border-radius:16px; padding:24px;
-      box-shadow:0 12px 32px rgba(0,0,0,.1); text-align:center;
+      background:#fff;
+      border-radius:16px;
+      padding:24px;
+      box-shadow:0 12px 32px rgba(0,0,0,.10);
+      text-align:center;
     }
-    h1 { margin:0 0 8px }
-    p { margin:8px 0 0 }
+    h1 { margin:0 0 8px; }
+    p { margin:8px 0 0; line-height:1.45; }
     .btn {
-      margin-top:18px; font-size:1.15rem; font-weight:600;
-      padding:14px 18px; border:0; border-radius:12px; cursor:pointer;
+      margin-top:18px;
+      font-size:1.15rem; font-weight:600;
+      padding:14px 18px;
+      border:0; border-radius:12px; cursor:pointer;
       background:var(--blue); color:#fff;
     }
-    .tip { font-size:.95rem; opacity:.85 }
-    .footer { margin-top:14px; font-size:.85rem; opacity:.7 }
+    .tip { font-size:.95rem; opacity:.85; }
+    .footer { margin-top:14px; font-size:.85rem; opacity:.75; }
   </style>
 </head>
 <body>
-  <main class="card">
-    <h1>Shop Amazon, Help Our Church</h1>
+  <main class="card" role="main">
+    <h1>Shop Amazon, Help City of Refuge</h1>
     <p>Tap the button before you shop. It costs you nothing, but Amazon sends our church a small commission.</p>
     <p class="tip"><strong>Tip:</strong> Add this to your <em>Home Screen</em> for one-tap support.</p>
 
-    <button class="btn" id="shopBtn" aria-label="Open Amazon with church support">
+    <button class="btn" id="shopBtn" aria-label="Open Amazon with our church support link">
       Shop Amazon (Supports Us)
     </button>
 
@@ -53,18 +63,17 @@
       </p>
     </noscript>
 
-    <div class="footer">Thank you for supporting our ministry ❤️</div>
+    <div class="footer">Thank you for supporting City of Refuge ❤️</div>
   </main>
 
   <script>
-    // Register the service worker so phones can "Add to Home Screen"
+    // Enable "Add to Home Screen" behavior on phones
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js').catch(()=>{});
     }
 
-    // One-tap: send people through your Associates tag
-    document.getElementById('shopBtn').addEventListener('click', function () {
-      // Same-tab navigation preserves cookies clearly
+    // One-tap button: sends shoppers through your Associates tag
+    document.getElementById('shopBtn').addEventListener('click', () => {
       window.location.href = 'https://www.amazon.com/?tag=cityofrefug0f-20';
     });
   </script>
