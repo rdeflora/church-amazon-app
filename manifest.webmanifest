@@ -1,7 +1,8 @@
 {
   "name": "City of Refuge — Amazon Support",
   "short_name": "City of Refuge",
-  "start_url": "/",
+  "start_url": "/church-amazon-app/",
+  "scope": "/church-amazon-app/",
   "display": "standalone",
   "background_color": "#f6f7fb",
   "theme_color": "#0f5b9a",
