@@ -21,30 +21,22 @@
     body {
       margin:0;
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-      background:#f6f7fb;
-      color:#111;
-      display:grid;
-      place-items:center;
+      background:#f6f7fb; color:#111; display:grid; place-items:center;
     }
     .card {
       width:min(92vw, 520px);
-      background:#fff;
-      border-radius:16px;
-      padding:24px;
-      box-shadow:0 12px 32px rgba(0,0,0,.10);
-      text-align:center;
+      background:#fff; border-radius:16px; padding:24px;
+      box-shadow:0 12px 32px rgba(0,0,0,.10); text-align:center;
     }
-    h1 { margin:0 0 8px; }
-    p { margin:8px 0 0; line-height:1.45; }
+    h1 { margin:0 0 8px }
+    p { margin:8px 0 0; line-height:1.45 }
     .btn {
-      margin-top:18px;
-      font-size:1.15rem; font-weight:600;
-      padding:14px 18px;
-      border:0; border-radius:12px; cursor:pointer;
+      margin-top:18px; font-size:1.15rem; font-weight:600;
+      padding:14px 18px; border:0; border-radius:12px; cursor:pointer;
       background:var(--blue); color:#fff;
     }
-    .tip { font-size:.95rem; opacity:.85; }
-    .footer { margin-top:14px; font-size:.85rem; opacity:.75; }
+    .tip { font-size:.95rem; opacity:.85 }
+    .footer { margin-top:14px; font-size:.85rem; opacity:.75 }
   </style>
 </head>
 <body>
@@ -67,12 +59,9 @@
   </main>
 
   <script>
-    // Enable "Add to Home Screen" behavior on phones
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js').catch(()=>{});
     }
-
-    // One-tap button: sends shoppers through your Associates tag
     document.getElementById('shopBtn').addEventListener('click', () => {
       window.location.href = 'https://www.amazon.com/?tag=cityofrefug0f-20';
     });
