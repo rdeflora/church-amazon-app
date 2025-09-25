@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Support Our Church</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#0f5b9a">
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:0;display:grid;place-items:center;min-height:100dvh;background:#f6f7fb}
+    .card{max-width:520px;background:#fff;border-radius:16px;padding:24px;margin:16px;box-shadow:0 10px 30px rgba(0,0,0,.08);text-align:center}
+    h1{margin:0 0 8px}
+    p{margin:8px 0}
+    button{font-size:1.2rem;padding:14px 18px;border:0;border-radius:12px;cursor:pointer}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Shop Amazon, Help Our Church</h1>
+    <p>Tap the button before you shop. It costs you nothing, and Amazon sends us a small commission.</p>
+    <p><strong>Tip:</strong> After it loads once, use <em>Add to Home Screen</em> so it’s one tap forever.</p>
+    <button onclick="location.href='https://www.amazon.com/?tag=cityofrefug0f-20'">
+      Shop Amazon (Supports Us)
+    </button>
+  </div>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js').catch(()=>{});
+    }
+  </script>
+</body>
+</html>
