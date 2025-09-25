@@ -2,31 +2,71 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Support Our Church</title>
+
+  <!-- PWA + Icons -->
   <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icon-192.png">
   <meta name="theme-color" content="#0f5b9a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <!-- Basic styles -->
   <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:0;display:grid;place-items:center;min-height:100dvh;background:#f6f7fb}
-    .card{max-width:520px;background:#fff;border-radius:16px;padding:24px;margin:16px;box-shadow:0 10px 30px rgba(0,0,0,.08);text-align:center}
-    h1{margin:0 0 8px}
-    p{margin:8px 0}
-    button{font-size:1.2rem;padding:14px 18px;border:0;border-radius:12px;cursor:pointer}
+    :root { --blue:#0f5b9a; }
+    * { box-sizing: border-box; }
+    html, body { height:100%; }
+    body {
+      margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      background:#f6f7fb; color:#111; display:grid; place-items:center;
+    }
+    .card {
+      width:min(92vw, 520px);
+      background:#fff; border-radius:16px; padding:24px;
+      box-shadow:0 12px 32px rgba(0,0,0,.1); text-align:center;
+    }
+    h1 { margin:0 0 8px }
+    p { margin:8px 0 0 }
+    .btn {
+      margin-top:18px; font-size:1.15rem; font-weight:600;
+      padding:14px 18px; border:0; border-radius:12px; cursor:pointer;
+      background:var(--blue); color:#fff;
+    }
+    .tip { font-size:.95rem; opacity:.85 }
+    .footer { margin-top:14px; font-size:.85rem; opacity:.7 }
   </style>
 </head>
 <body>
-  <div class="card">
+  <main class="card">
     <h1>Shop Amazon, Help Our Church</h1>
-    <p>Tap the button before you shop. It costs you nothing, and Amazon sends us a small commission.</p>
-    <p><strong>Tip:</strong> After it loads once, use <em>Add to Home Screen</em> so it’s one tap forever.</p>
-    <button onclick="location.href='https://www.amazon.com/?tag=cityofrefug0f-20'">
+    <p>Tap the button before you shop. It costs you nothing, but Amazon sends our church a small commission.</p>
+    <p class="tip"><strong>Tip:</strong> Add this to your <em>Home Screen</em> for one-tap support.</p>
+
+    <button class="btn" id="shopBtn" aria-label="Open Amazon with church support">
       Shop Amazon (Supports Us)
     </button>
-  </div>
+
+    <noscript>
+      <p style="margin-top:12px;">JavaScript is off. Use this link instead:
+        <a href="https://www.amazon.com/?tag=cityofrefug0f-20">Open Amazon</a>
+      </p>
+    </noscript>
+
+    <div class="footer">Thank you for supporting our ministry ❤️</div>
+  </main>
+
   <script>
+    // Register the service worker so phones can "Add to Home Screen"
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js').catch(()=>{});
     }
+
+    // One-tap: send people through your Associates tag
+    document.getElementById('shopBtn').addEventListener('click', function () {
+      // Same-tab navigation preserves cookies clearly
+      window.location.href = 'https://www.amazon.com/?tag=cityofrefug0f-20';
+    });
   </script>
 </body>
 </html>
